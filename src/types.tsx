@@ -66,3 +66,7 @@ export interface RatingProps {
   voteAverage: number;
   voteCount: number;
 }
+
+export interface RatingFormData {
+  rating: number;
+}
