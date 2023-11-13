@@ -24,7 +24,7 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ params }) => {
 
   return (
     <main>
-      <section className="m-4 md:m-10  xl:w-9/12 min-h-[600px] md:w-9/12 md:min-h-[600px]">
+      <section className="m-4 md:m-10  lg:w-9/12 min-h-[600px] md:w-9/12 md:min-h-[600px]">
         {movie && (
           <>
             <Rating
