@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Movie Rating App
+
+Welcome to the Movie Rating App! This web application allows users to browse movies, view details, and rate their favorite movies.
+
+This project was bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## Key Features
+
+- **Browse Movies:** Explore a collection of popular movies and search for specific titles.
+- **Movie Details:** View detailed information about each movie, including overview, release date, and more.
+- **Rate Movies:** Rate your favorite movies and keep track of your ratings.
+- **My List:** Check your rated movies on the "My List" page.
+
+## Technologies Used
+
+- React
+- Next.js
+- React Query
+- TypeScript
+- Daisy UI & Tailwind CSS
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to run the project locally:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/your-username/movie-rating-app.git
+   cd movie-rating-app
+   ```
+2. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Set Up Environment Variables:**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+    Create a .env file in the root directory.
+    Add your Movie Database API key as shown in the .env.examples file
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+    ```bash
+    NEXT_PUBLIC_MOVIE_API_KEY=your-api-key
+    ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. **Run the Application:**
 
-## Learn More
+    ```bash
+    npm run dev
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+    Open in Browser:
+    
+    Open your browser and navigate to http://localhost:3000.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributing
+Contributions to The Movie App are welcome. If you find any issues or have ideas for improvements, please feel free to open an issue or submit a pull request.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
+This project is licensed under the [MIT License](LICENSE). Feel free to use and modify the code as per your needs;
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contact
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If you have any questions or inquiries, please feel free to contact [Daro](https://github.com/Daro007).
