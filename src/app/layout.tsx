@@ -1,4 +1,5 @@
 "use client";
+import React, { useEffect } from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Footer from "../components/Footer";
@@ -6,6 +7,7 @@ import NavBar from "@/components/NavBar";
 import Head from "next/head";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MovieProvider } from "../context/MovieContext";
+import { Movie } from "../types";
 import "./globals.css";
 
 const queryClient = new QueryClient();
@@ -22,6 +24,23 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  useEffect(() => {
+    const existingRatedMovies = localStorage.getItem("ratedMovies");
+
+    let initialRatedMovies: Movie[] = [];
+    if (existingRatedMovies) {
+      try {
+        const parsedRatedMovies = JSON.parse(existingRatedMovies);
+        if (Array.isArray(parsedRatedMovies)) {
+          initialRatedMovies = parsedRatedMovies;
+        }
+      } catch (error) {
+        console.error("Error parsing existing ratedMovies:", error);
+      }
+    }
+    localStorage.setItem("ratedMovies", JSON.stringify(initialRatedMovies));
+  }, []);
+
   return (
     <html lang="en">
       <Head>

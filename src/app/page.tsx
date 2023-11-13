@@ -15,7 +15,8 @@ export default function Home() {
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
             <h1 className="mb-5 text-5xl font-bold">Welcome to the Movie App</h1>
-            <Link aria-label="Browse Movies" href="/search"><button className="btn btn-primary">Browse here</button></Link>
+            <Link aria-label="Browse Movies" href="/search"><button className="btn btn-primary m-2">Browse here</button></Link>
+            <Link aria-label="Browse Movies" href="/mylist"><button className="btn btn-neutral">Rated movies</button></Link>
           </div>
         </div>
       </div>

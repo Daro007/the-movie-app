@@ -56,6 +56,8 @@ export default function Search() {
   return (
     <main className={styles.main}>
       <section>
+      <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">All movies</h1>
+      <small className="badge">Scroll {'->'} </small>
         {popularMovies.length > 0 ? (
           <MovieList movies={popularMovies} />
         ) : (

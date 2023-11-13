@@ -9,7 +9,6 @@ import Image from "next/image";
 const MovieDetails: React.FC<MovieDetailsProps> = ({ params }) => {
   // console.log("params: " + JSON.stringify(params))
   const movieId = params!.id;
-  const convertedMovieId: number = parseInt(movieId);
 
   const { data: movie, isLoading, isError } = useMovieDetails(movieId);
 
@@ -21,7 +20,7 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ params }) => {
     return <div>Error fetching movie details</div>;
   }
 
-  console.log("MOVIE: ", movie);
+  // console.log("MOVIE: ", movie);
 
   return (
     <main>
@@ -95,8 +94,8 @@ const MovieDetails: React.FC<MovieDetailsProps> = ({ params }) => {
           </>
         )}
       </section>
-      <section className="m-8 md:m-10  xl:w-9/12 min-h-[600px] md:w-9/12 md:min-h-[600px]">
-        <RateMovieForm movieId={convertedMovieId} />
+      <section className="m-8 md:m-10  xl:w-9/12 min-h-[300px] md:w-9/12 md:min-h-[200px]">
+        {movie ? <RateMovieForm movie={movie} /> : ""}
       </section>
     </main>
   );
