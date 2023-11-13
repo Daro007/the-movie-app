@@ -34,10 +34,20 @@ export interface MovieListProps {
 }
 
 export interface MovieDetailsProps {
-  params: {
+  params:  {
     id: string;
-  };
+  }
 }
+
+export interface MovieClientDetailsProps {
+  id: string;
+}
+
+export interface MovieContextProps {
+  props: string;
+}
+
+export type MovieId = string;
 
 export interface RatingPayload {
   movieId: number;
@@ -49,18 +59,21 @@ export interface MovieState {
   popularMovies: Movie[];
   searchedMovies: Movie[];
   guestSession: string;
+  ratedMovies: Movie[];
 }
 
 export enum ACTIONS {
   SET_POPULAR_MOVIES = "SET_POPULAR_MOVIES",
   SET_SEARCHED_MOVIES = "SET_SEARCHED_MOVIES",
   SET_GUEST_SESSION = "SET_GUEST_SESSION",
+  INIT_RATED_MOVIES = 'INIT_RATED_MOVIES'
 }
 
 export type Action =
   | { type: ACTIONS.SET_POPULAR_MOVIES; payload: Movie[] }
   | { type: ACTIONS.SET_SEARCHED_MOVIES; payload: Movie[] }
-  | { type: ACTIONS.SET_GUEST_SESSION; payload: string };
+  | { type: ACTIONS.SET_GUEST_SESSION; payload: string }
+  | { type: ACTIONS.INIT_RATED_MOVIES; payload: Movie[] };
 
 export interface RatingProps {
   voteAverage: number;

@@ -1,4 +1,4 @@
-import React, { useReducer, useContext, createContext, Dispatch, ReactNode } from 'react';
+import React, { useReducer, useContext, createContext, Dispatch, ReactNode, useEffect } from 'react';
 import { Movie, MovieState, ACTIONS, Action } from '../types'; 
 
 const MovieContext = createContext<{ state: MovieState; dispatch: Dispatch<Action> }>({
@@ -6,15 +6,37 @@ const MovieContext = createContext<{ state: MovieState; dispatch: Dispatch<Actio
     popularMovies: [],
     searchedMovies: [],
     guestSession: '',
+    ratedMovies: [], 
   },
   dispatch: () => null,
 });
+
 const MovieProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [state, dispatch] = useReducer(movieReducer, {
     popularMovies: [],
     searchedMovies: [],
     guestSession: '',
+    ratedMovies: [] 
   });
+
+  useEffect(() => {
+    const existingRatedMovies = localStorage.getItem('ratedMovies');
+
+    let initialRatedMovies: Movie[] = [];
+    if (existingRatedMovies) {
+      try {
+        const parsedRatedMovies = JSON.parse(existingRatedMovies);
+        if (Array.isArray(parsedRatedMovies)) {
+          initialRatedMovies = parsedRatedMovies;
+        }
+      } catch (error) {
+        console.error('Error parsing existing ratedMovies:', error);
+      }
+    }
+    localStorage.setItem("ratedMovies", JSON.stringify(initialRatedMovies));
+    dispatch({ type: ACTIONS.INIT_RATED_MOVIES, payload: initialRatedMovies });
+  }, []);
+
 
   return <MovieContext.Provider value={{ state, dispatch }}>{children}</MovieContext.Provider>;
 };
@@ -35,6 +57,8 @@ const movieReducer = (state: MovieState, action: Action): MovieState => {
       return { ...state, searchedMovies: action.payload };
     case ACTIONS.SET_GUEST_SESSION:
       return { ...state, guestSession: action.payload };
+    case ACTIONS.INIT_RATED_MOVIES:
+      return { ...state, ratedMovies: action.payload };  
     default:
       return state;
   }
