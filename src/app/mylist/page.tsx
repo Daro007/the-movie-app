@@ -1,21 +1,25 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./page.module.css";
 import MovieList from "../../components/MovieList";
 import { Movie } from "../../types";
 import Link from "next/link";
 
 const MyList: React.FC = () => {
-  const ratedMoviesString = localStorage.getItem("ratedMovies");
-  let ratedMovies: Movie[] = [];
+  const [ratedMovies, setRatedMovies] = useState<Movie[]>([]);
 
-  if (ratedMoviesString) {
-    try {
-      ratedMovies = JSON.parse(ratedMoviesString);
-    } catch (error) {
-      console.error("Error parsing ratedMovies from localStorage:", error);
+  useEffect(() => {
+    const ratedMoviesString = localStorage.getItem("ratedMovies");
+
+    if (ratedMoviesString) {
+      try {
+        const parsedRatedMovies: Movie[] = JSON.parse(ratedMoviesString);
+        setRatedMovies(parsedRatedMovies);
+      } catch (error) {
+        console.error("Error parsing ratedMovies from localStorage:", error);
+      }
     }
-  }
+  }, []);
 
   return (
     <section className={styles.main}>
