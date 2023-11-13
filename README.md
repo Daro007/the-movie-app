@@ -1,6 +1,6 @@
-# Movie Rating App
+# The Movie App
 
-Welcome to the Movie Rating App! This web application allows users to browse movies, view details, and rate their favorite movies.
+Welcome to The Movie App! This web application allows users to browse movies, view details, and rate their favorite movies.
 
 This project was bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
@@ -18,6 +18,7 @@ This project was bootstrapped with [`create-next-app`](https://github.com/vercel
 - React Query
 - TypeScript
 - Daisy UI & Tailwind CSS
+- The Movie DB API
 
 ## Getting Started
 
