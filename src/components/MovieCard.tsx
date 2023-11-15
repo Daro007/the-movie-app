@@ -15,6 +15,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
     <Link
       aria-label="Browse Movies"
       href={`/movies/${movie.id}`}
+      data-testid={`movie-card-${movie.id}`}
     >
       <div className="carousel-item card w-96 bg-base-100 shadow-xl m-4">
         <div className="card-body">

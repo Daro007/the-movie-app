@@ -97,7 +97,7 @@ const RateMovieForm: React.FC<{ movie: Movie }> = ({ movie }) => {
         </small>
       </Link>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} data-testid="rate-movie-form">
         <div className="rating rating-lg">
           {[1, 2, 3, 4, 5].map((star) => (
             <input
